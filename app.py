@@ -24,16 +24,25 @@ def scrape_site(url, tags):
     return data
 
 st.title('SEO Tag Scraper')
+st.write("""
+This tool allows you to scrape SEO-related tags from the top-ranking sites for a specific keyword.
+To get started, you'll need an API key from SERPer Dev. If you don't have one, get it [here](https://serper.dev).
+""")
 
 # Sidebar for API Key input
 st.sidebar.header("Settings")
+st.sidebar.write("""
+Please enter your SERPer Dev API key below. This key is used to fetch the top-ranking sites for your keyword.
+""")
 apiKey = st.sidebar.text_input("Enter your SERP API Key:", type="password")
 
 # UI Components using columns
 col1, col2 = st.columns(2)
 with col1:
+    st.write("Enter the keyword you want to investigate.")
     keyword = st.text_input('Enter the keyword:')
 with col2:
+    st.write("Select the HTML tags you wish to scrape from the sites.")
     selected_tags = st.multiselect('Select tags to scrape:', ['h1', 'h2', 'h3', 'p'])
 
 if st.button('Scrape'):
