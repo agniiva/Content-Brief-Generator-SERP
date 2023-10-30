@@ -39,10 +39,8 @@ apiKey = st.sidebar.text_input("Enter your SERP API Key:", type="password")
 # UI Components using columns
 col1, col2 = st.columns(2)
 with col1:
-    st.write("Enter the keyword you want to investigate.")
     keyword = st.text_input('Enter the keyword:')
 with col2:
-    st.write("Select the HTML tags you wish to scrape from the sites.")
     selected_tags = st.multiselect('Select tags to scrape:', ['h1', 'h2', 'h3', 'p'])
 
 if st.button('Scrape'):
