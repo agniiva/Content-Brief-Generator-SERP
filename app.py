@@ -39,7 +39,7 @@ def generate_hyper_optimized_brief(consolidated_data, openai_api_key):
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo-16k",
         messages=[
-            {"role": "system", "content": "You are a seasoned SEO expert and content strategist. Your task is to analyze the following consolidated data from top-ranking websites and provide a hyper-optimized content brief and thesis. This brief should be actionable and clear for content writers, highlighting key points and takeaways.\n\n"},
+            {"role": "system", "content": "You are a seasoned SEO expert and content strategist. Your task is to analyze the following consolidated data from top-ranking websites and provide a hyper-optimized content brief & optimal structure outline with the data of the heading given. This brief should be actionable and clear for content writers, highlighting key points and takeaways.\n\n"},
             {"role": "user", "content": detailed_message}
         ]
     )
