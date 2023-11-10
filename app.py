@@ -33,7 +33,7 @@ def generate_hyper_optimized_brief(consolidated_data, openai_api_key):
         detailed_message = f"{tag}: {' '.join(texts[:5])}\n"  # Using first 3 items for brevity
 
     # Additional instructions for clarity and conciseness
-    detailed_message += "\nConsider the most relevant information, avoid fluff, and provide a concise yet comprehensive brief about the intent & content using the top ranking sites. Generate a optimised content brief with investment thesis."
+    detailed_message += "\nConsider the most relevant information, avoid fluff, and provide a concise yet comprehensive brief about the intent & content using the top ranking sites. Generate a optimised content brief with content idea thesis. give what we need to build is it a content piece or a calculator or a Landing page or other things."
 
     openai.api_key = openai_api_key
     completion = openai.ChatCompletion.create(
