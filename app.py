@@ -27,14 +27,14 @@ def scrape_site(url, tags):
 
 def generate_hyper_optimized_brief(consolidated_data, openai_api_key, keyword):
     # Introductory context
-    detailed_message = "You are a seasoned SEO expert and content strategist. Your task is to analyze the following consolidated data from top-ranking websites and provide a hyper-optimized content brief focused around the keyword '{keyword}'. This brief should be actionable and clear for content writers, highlighting key points and takeaways.\n\n"
+    detailed_message = f"You are a seasoned SEO expert and content strategist. Your task is to analyze the following consolidated data from top-ranking websites and provide a hyper-optimized content brief focused around the keyword '{keyword}'. This brief should be actionable and clear for content writers, highlighting key points and takeaways.\n\n"
 
     # Add the scraped data
     for tag, texts in consolidated_data.items():
         detailed_message = f"{tag}: {' '.join(texts[:10])}\n"  # Using first 3 items for brevity
 
     # Additional instructions for clarity and conciseness
-    detailed_message += "\nConsider the most relevant information, avoid fluff, and provide a concise yet comprehensive brief about the intent & content using the top ranking sites, focusing particularly on the keyword '{keyword}'. Generate an optimized content brief with content idea thesis, specifying whether it's a content piece, a calculator, a landing page, or other. Format the brief in Markdown."
+    detailed_message += f"\nConsider the most relevant information, avoid fluff, and provide a concise yet comprehensive brief about the intent & content using the top ranking sites, focusing particularly on the keyword '{keyword}'. Generate an optimized content brief with content idea thesis, specifying whether it's a content piece, a calculator, a landing page, or other. Format the brief in Markdown."
 
 
     openai.api_key = openai_api_key
