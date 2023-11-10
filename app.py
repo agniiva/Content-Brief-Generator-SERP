@@ -25,22 +25,23 @@ def scrape_site(url, tags):
         data[tag] = [elem.get_text(strip=True) for elem in soup.find_all(tag)]
     return data
 
-def generate_hyper_optimized_brief(consolidated_data, openai_api_key):
+def generate_hyper_optimized_brief(consolidated_data, openai_api_key, keyword):
     # Introductory context
-    # detailed_message = "You are a seasoned SEO expert and content strategist. Your task is to analyze the following consolidated data from top-ranking websites and provide a hyper-optimized content brief and thesis. This brief should be actionable and clear for content writers, highlighting key points and takeaways.\n\n"
+    detailed_message = "You are a seasoned SEO expert and content strategist. Your task is to analyze the following consolidated data from top-ranking websites and provide a hyper-optimized content brief focused around the keyword '{keyword}'. This brief should be actionable and clear for content writers, highlighting key points and takeaways.\n\n"
 
     # Add the scraped data
     for tag, texts in consolidated_data.items():
         detailed_message = f"{tag}: {' '.join(texts[:10])}\n"  # Using first 3 items for brevity
 
     # Additional instructions for clarity and conciseness
-    detailed_message += "\nConsider the most relevant information, avoid fluff, and provide a concise yet comprehensive brief about the intent & content using the top ranking sites. Generate a optimised content brief with content idea thesis. give what we need to build is it a content piece or a calculator or a Landing page or other things. in Markdown"
+    detailed_message += "\nConsider the most relevant information, avoid fluff, and provide a concise yet comprehensive brief about the intent & content using the top ranking sites, focusing particularly on the keyword '{keyword}'. Generate an optimized content brief with content idea thesis, specifying whether it's a content piece, a calculator, a landing page, or other. Format the brief in Markdown."
+
 
     openai.api_key = openai_api_key
     completion = openai.ChatCompletion.create(
         model="gpt-4-1106-preview",
         messages=[
-            {"role": "system", "content": "You are a seasoned SEO expert and content strategist. Your task is to analyze the following consolidated data from top-ranking websites and provide a hyper-optimized content brief & optimal structure outline with the data of the heading given. This brief should be actionable and clear for content writers, highlighting key points and takeaways.\n\n"},
+            {"role": "system", "content": "You are a seasoned SEO expert and content strategist. Your task is to analyze the following consolidated data from top-ranking websites and provide a hyper-optimized content brief & optimal structure outline with the data of the heading given. This brief should be actionable and clear for content writers, highlighting key points and takeaways.\n\n Use the keyword's intent & context."},
             {"role": "user", "content": detailed_message}
         ]
     )
