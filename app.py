@@ -7,7 +7,8 @@ def get_top_sites(keyword, apiKey):
     url = "https://google.serper.dev/search"
     data = {
         "q": keyword,
-        "num": 20
+        "num": 10,
+        "gl": "us"
     }
     headers = {
         'Content-Type': 'application/json',
