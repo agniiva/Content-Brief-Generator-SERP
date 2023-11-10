@@ -101,7 +101,7 @@ if st.button('Scrape'):
     # Generate and display hyper-optimized content brief and thesis, only if OpenAI API key is provided
     if openai_api_key:
         with st.expander("Hyper-Optimized Content Brief & Thesis"):
-            hyper_brief = generate_hyper_optimized_brief(consolidated_data, openai_api_key)
+            hyper_brief = generate_hyper_optimized_brief(consolidated_data, openai_api_key, keyword)
             st.write(hyper_brief)
     else:
         st.write("OpenAI API key not provided. Skipping hyper-optimized content brief generation.")
