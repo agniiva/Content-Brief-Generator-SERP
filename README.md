@@ -1,13 +1,13 @@
 # SERP Content Brief Generator Documentation
 
 ## Overview
-The SERP Content Brief Generator is a powerful tool designed to help SEO professionals and content strategists scrape SEO-related tags from top-ranking sites for a specific keyword and generate a hyper-optimized content brief using OpenAI's GPT-3.5-turbo model. This brief can be used to create high-quality, SEO-friendly content that aligns with the top-performing content on the web.
+The SERP Content Brief Generator is a powerful tool designed to help SEO professionals and content strategists scrape SEO-related tags from top-ranking sites for a specific keyword and generate a hyper-optimized content brief using OpenAI's GPT-4o. This brief can be used to create high-quality, SEO-friendly content that aligns with the top-performing content on the web.
 
 ## Features
 - Fetch top-ranking sites for a specific keyword using SERPer Dev API.
 - Scrape specified HTML tags (e.g., h1, h2, h3, p) from these sites.
 - Consolidate the scraped data.
-- Generate a hyper-optimized content brief using OpenAI's GPT-3.5-turbo model.
+- Generate a hyper-optimized content brief using OpenAI's GPT-4o model.
 - User-friendly interface built with Streamlit.
 
 ## Prerequisites
